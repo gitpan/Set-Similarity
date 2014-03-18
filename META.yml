@@ -1,0 +1,35 @@
+---
+abstract: 'similarity measures for sets'
+author:
+  - 'Helmut Wollmersdorfer'
+build_requires: {}
+configure_requires:
+  Module::Build: 0.38
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4203, CPAN::Meta::Converter version 2.132830'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Set-Similarity
+no_index:
+  file:
+    - README.pod
+provides:
+  Set::Similarity:
+    file: lib/Set/Similarity.pm
+    version: 0.001
+  Set::Similarity::Dice:
+    file: lib/Set/Similarity/Dice.pm
+  Set::Similarity::Jaccard:
+    file: lib/Set/Similarity/Jaccard.pm
+  Set::Similarity::Overlap:
+    file: lib/Set/Similarity/Overlap.pm
+requires:
+  Test::More: 0
+  perl: v5.8.0
+resources:
+  bugtracker: http://github.com/wollmers/Set-Similarity/issues
+  license: http://dev.perl.org/licenses/
+  repository: http://github.com/wollmers/Set-Similarity
+version: 0.001
