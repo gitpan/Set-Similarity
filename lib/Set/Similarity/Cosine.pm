@@ -1,4 +1,4 @@
-package Set::Similarity::Dice;
+package Set::Similarity::Cosine;
 
 use strict;
 use warnings;
@@ -8,9 +8,9 @@ use parent 'Set::Similarity';
 sub from_sets {
   my ($self, $set1, $set2) = @_;
 
-  # $dice = ($intersection * 2 / $combined_length);
+  # it is so simple because the vectors contain only 0 and 1
   return (
-    $self->intersection($set1,$set2) * 2 / $self->combined_length($set1,$set2)
+    $self->intersection($set1,$set2) / (sqrt(scalar keys %$set1) * sqrt(scalar keys %$set2))
   );
 }
 
@@ -20,26 +20,26 @@ __END__
 
 =head1 NAME
 
-Set::Similarity::Dice - Dice coefficent for sets
+Set::Similarity::Cosine - Cosine similarity for sets
 
 =head1 SYNOPSIS
 
- use Set::Similarity::Dice;
+ use Set::Similarity::Cosine;
  
  # object method
- my $dice = Set::Similarity::Dice->new;
- my $similarity = $dice->similarity('Photographer','Fotograf');
+ my $cosine = Set::Similarity::Cosine->new;
+ my $similarity = $cosine->similarity('Photographer','Fotograf');
  
  # class method
- my $dice = 'Set::Similarity::Dice';
- my $similarity = $dice->similarity('Photographer','Fotograf');
+ my $cosine = 'Set::Similarity::Cosine';
+ my $similarity = $cosine->similarity('Photographer','Fotograf');
  
  # from 2-grams
  my $width = 2;
- my $similarity = $dice->similarity('Photographer','Fotograf',$width);
+ my $similarity = $cosine->similarity('Photographer','Fotograf',$width);
  
  # from arrayref of tokens
- my $similarity = $dice->similarity(['a','b'],['b']);
+ my $similarity = $cosine->similarity(['a','b'],['b']);
  
  # from hashref of features
  my $bird = {
@@ -58,7 +58,7 @@ Set::Similarity::Dice - Dice coefficent for sets
    legs     => true,
    arms     => true, 
  };
- my $similarity = $dice->similarity($bird,$mammal);
+ my $similarity = $cosine->similarity($bird,$mammal);
  
  # from hashref sets
  my $bird = {
@@ -73,22 +73,18 @@ Set::Similarity::Dice - Dice coefficent for sets
    legs     => undef,
    arms     => undef, 
  };
- my $similarity = $dice->from_sets($bird,$mammal); 
+ my $similarity = $cosine->from_sets($bird,$mammal); 
 
 =head1 DESCRIPTION
 
-=head2 Dice coefficient
+=head2 Cosine similarity
 
-The Dice coefficient is the number of elements in common to both sets relative to the 
-average size of the total number of elements present, i.e.
+A intersection B / (sqrt(A) * sqrt(B))
 
-( A intersect B ) / 0.5 ( A + B ) # the same as sorensen
-
-The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
 =head1 METHODS
 
-L<Set::Similarity::Dice> inherits all methods from L<Set::Similarity> and implements the
+L<Set::Similarity::Cosine> inherits all methods from L<Set::Similarity> and implements the
 following new ones.
 
 =head2 from_sets
@@ -111,5 +107,4 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =cut
-
 
