@@ -5,7 +5,6 @@ LICENSE
 MANIFEST
 META.json
 META.yml
-MYMETA.json
 README
 cpanfile
 dist.ini
