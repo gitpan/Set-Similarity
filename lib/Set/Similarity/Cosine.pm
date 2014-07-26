@@ -5,12 +5,14 @@ use warnings;
 
 use parent 'Set::Similarity';
 
+our $VERSION = 0.007;
+
 sub from_sets {
   my ($self, $set1, $set2) = @_;
 
   # it is so simple because the vectors contain only 0 and 1
   return (
-    $self->intersection($set1,$set2) / (sqrt(scalar keys %$set1) * sqrt(scalar keys %$set2))
+    $self->intersection($set1,$set2) / (sqrt(scalar @$set1) * sqrt(scalar @$set2))
   );
 }
 
