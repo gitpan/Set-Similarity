@@ -22,12 +22,12 @@ no_index:
     - eg
     - examples
 requires:
-  perl: '5.008005'
+  perl: '5.006000'
 resources:
   bugtracker: https://github.com/wollmers/Set-Similarity/issues
   homepage: https://github.com/wollmers/Set-Similarity
   repository: https://github.com/wollmers/Set-Similarity.git
-version: '0.010'
+version: '0.011'
 x_contributors:
   - 'Helmut Wollmersdorfer <helmut@wollmersdorfer.at>'
   - 'helmut <helmut@acerone.woll.internal>'
