@@ -3,7 +3,7 @@ package Set::Similarity;
 use strict;
 use warnings;
 
-our $VERSION = '0.014';
+our $VERSION = '0.015';
 
 use Carp 'croak';
 
@@ -105,6 +105,11 @@ __END__
 =head1 NAME
 
 Set::Similarity - similarity measures for sets
+
+=for html
+
+<a href="https://travis-ci.org/wollmers/Set-Similarity"><img src="https://travis-ci.org/wollmers/Set-Similarity.png" alt="Set-Similarity"></a>
+<a href='https://coveralls.io/r/wollmers/Set-Similarity?branch=master'><img src='https://coveralls.io/repos/wollmers/Set-Similarity/badge.png?branch=master' alt='Coverage Status' /></a>
 
 =head1 SYNOPSIS
 
