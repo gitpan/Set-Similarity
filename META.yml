@@ -29,7 +29,7 @@ resources:
   bugtracker: https://github.com/wollmers/Set-Similarity/issues
   homepage: https://github.com/wollmers/Set-Similarity
   repository: https://github.com/wollmers/Set-Similarity.git
-version: '0.018'
+version: '0.019'
 x_contributors:
   - 'Helmut Wollmersdorfer <helmut.wollmersdorfer@fixpunkt.de>'
   - 'Helmut Wollmersdorfer <helmut@wollmersdorfer.at>'
