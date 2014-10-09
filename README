@@ -54,6 +54,8 @@ SYNOPSIS
      my $similarity = $dice->from_sets($bird,$mammal);
 
 DESCRIPTION
+    This is the base class including mainly helper and convenience methods.
+
   Overlap coefficient
     ( A intersect B ) / min(A,B)
 
@@ -93,7 +95,7 @@ METHODS
     $any can be an arrayref, a hashref or a string. Strings are tokenized
     into n-grams of width $width.
 
-    $width must be integer, default is 1.
+    $width must be integer, or defaults to 1.
 
   from_tokens
       my $similarity = $object->from_tokens(['a','b'],['b']);
@@ -101,8 +103,16 @@ METHODS
   from_sets
       my $similarity = $object->from_sets(['a'],['b']);
 
+    Croaks if called directly. This method should be implemented in a child
+    module.
+
   intersection
       my $intersection_size = $object->intersection(['a'],['b']);
+
+  uniq
+      my @uniq = $object->uniq(['a','b']);
+
+    Transforms an arrayref of strings into an array of unique elements.
 
   combined_length
       my $set_size_sum = $object->combined_length(['a'],['b']);
@@ -116,6 +126,25 @@ METHODS
 
   _any
       my $arrayref = $object->_any($any,$width);
+
+SEE ALSO
+    Set::Similarity::Cosine
+
+    Set::Similarity::Dice
+
+    Set::Similarity::Jaccard
+
+    Set::Similarity::Overlap
+
+    Bag::Similarity doing the same for bags or multisets.
+
+    Text::Levenshtein for distance measures of strings, and a very overview
+    of similar modules,
+
+    <http://en.wikipedia.org/wiki/String_metric> for an overview of
+    similarity measures.
+
+    Cluster::Similarity for clusters.
 
 SOURCE REPOSITORY
     <http://github.com/wollmers/Set-Similarity>
