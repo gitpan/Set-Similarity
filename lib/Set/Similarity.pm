@@ -3,7 +3,7 @@ package Set::Similarity;
 use strict;
 use warnings;
 
-our $VERSION = '0.021';
+our $VERSION = '0.022';
 
 use Carp 'croak';
 
@@ -54,9 +54,7 @@ sub ngrams {
 sub from_tokens {
   my ($self, $tokens1, $tokens2) = @_;
 
-  # uncoverable condition right
-  # uncoverable condition false
-  return 1 if (!scalar @$tokens1 && !scalar @$tokens2);
+  return 1 if (!(scalar @$tokens1 || scalar @$tokens2));
   return 0 unless (scalar @$tokens1 && scalar @$tokens2 );
     
   return $self->from_sets(
